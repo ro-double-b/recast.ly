@@ -3,18 +3,24 @@ class App extends React.Component {
     super();
     this.state = {
       collection: window.exampleVideoData,
-      currentSong: window.exampleVideoData[0]
+      currentVideo: window.exampleVideoData[0]
     };
   }
+
+  newCurrentVideo(newVideo) {
+    this.state.currentVideo = newVideo;
+    this.forceUpdate();
+  }
+
   render() {
     return (
       <div>
         <Nav />
         <div className="col-md-7">
-          <VideoPlayer video={this.state.currentSong}/>
+          <VideoPlayer video={this.state.currentVideo}/>
         </div>
         <div className="col-md-5">
-          <VideoList currentVideo={this.state.currentSong} videos={this.state.collection}/>
+          <VideoList currentVideo={this.newCurrentVideo.bind(this)} videos={this.state.collection}/>
         </div>
       </div>
     );
