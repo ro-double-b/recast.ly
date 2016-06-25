@@ -10,7 +10,7 @@ class App extends React.Component {
   newCurrentVideo(newVideo) {
     this.state.currentVideo = newVideo;
     this.forceUpdate();
-    // window.searchYouTube();
+    window.searchYouTube({key: window.YOUTUBE_API_KEY, query: 'react', max: 5});
   }
 
   render() {
