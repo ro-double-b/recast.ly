@@ -6,18 +6,18 @@ var searchYouTube = (options, callback) => {
     type: 'GET',
     data: {
       key: options.key,
-      query: options.query,
-      max: options.max,
+      q: options.query,
+      maxResults: options.max,
       part: 'snippet',
       type: 'video',
-      videoEmbeded: true
+      videoEmbeddable: 'true'
     },
     // key: window.YOUTUBE_API_KEY,
     // query: 'cats',
     // max: 10,
     success: function(data) {
-      window.exampleVideoData = callback(data.items);
-      console.log('IT WORKS!');
+      callback(data.items);
+      console.log('test2');
     },
     error: function(data) {
       // console.log(this.url)
